@@ -1,0 +1,68 @@
+import h5py
+
+# Liệt kê tất cả các keys trong tệp HDF5
+def list_keys(file_path):
+    try:
+        with h5py.File(file_path, 'r') as file:
+            keys = list(file.keys())
+            return keys
+    except Exception as e:
+        print(f"Error: {e}")
+        return []
+
+# In ra tất cả các keys trong tệp 'hello.h5'
+keys = list_keys("hello.h5")
+print("Keys in hello.h5:", keys)
+
+-----------------------------------------------------
+
+import h5py
+
+# Kiểm tra tên dataset có tồn tại trong tệp HDF5 hay không
+def is_dataset_exist(file_path, dataset_name):
+    try:
+        with h5py.File(file_path, 'r') as file:
+            return dataset_name in file
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
+# Kiểm tra xem tên dataset 'model_weights' đã tồn tại trong tệp 'hello.h5' hay không
+if is_dataset_exist("hello.h5", "model_weights"):
+    # Nếu dataset đã tồn tại, bạn có thể thực hiện hành động tương ứng
+    print("Dataset already exists!")
+    # Ví dụ: Xóa dataset đã tồn tại
+    with h5py.File("hello.h5", 'a') as file:
+        del file["model_weights"]  # Thay đổi tên dataset cần xóa thành "model_weights"
+        print("Deleted existing dataset.")
+else:
+    # Nếu dataset chưa tồn tại, bạn có thể tiếp tục lưu mô hình
+    print("Dataset does not exist. Saving model...")
+    model.save("hello.h5")
+
+------------------------------------------------------------------------
+
+import h5py
+
+# Kiểm tra xem tên dataset 'model_weights' đã tồn tại trong tệp 'hello.h5' hay không
+if is_dataset_exist("hello.h5", "model_weights"):
+    # Nếu dataset đã tồn tại, bạn có thể thực hiện hành động tương ứng
+    print("Dataset already exists!")
+    # Ví dụ: Xóa tất cả các keys trong tệp HDF5
+    with h5py.File("hello.h5", 'a') as file:
+        file.clear()  # Xóa tất cả các keys (dataset và nhóm) trong tệp HDF5
+        print("All keys deleted.")
+else:
+    # Nếu dataset chưa tồn tại, bạn có thể tiếp tục lưu mô hình
+    print("Dataset does not exist. Saving model...")
+    model.save("hello.h5")
+
+--------------------------------------------------------------
+
+pip install  flask
+
+<_TakeDataset element_spec=(TensorSpec(shape=(None, 1800), dtype=tf.int64, name=None), TensorSpec(shape=(None, 6), dtype=tf.int64, name=None))>
+<_TakeDataset element_spec=(TensorSpec(shape=(None, 1800), dtype=tf.int64, name=None), TensorSpec(shape=(None, 6), dtype=tf.int64, name=None))>
+
+<_PrefetchDataset element_spec=(TensorSpec(shape=(None, 1800), dtype=tf.int64, name=None), TensorSpec(shape=(None, 6), dtype=tf.int64, name=None))>
+<_PrefetchDataset element_spec=(TensorSpec(shape=(None, 1800), dtype=tf.int64, name=None), TensorSpec(shape=(None, 6), dtype=tf.int64, name=None))>

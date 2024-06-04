@@ -1,0 +1,13 @@
+1///////////////////////////////////////
+# with collection.watch() as stream:
+#     print("Listening for changes on collection:", collection.name)
+    # for change in stream:
+    #     print("Change detected:")
+    #     print(change)
+    #     # Xử lý các sự kiện thay đổi ở đây, ví dụ in ra thông tin change
+
+    #     # Ví dụ xử lý khi có sự thay đổi kiểu insert
+    #     if change.get("operationType") == "insert":
+    #         document = change.get("fullDocument")
+    #         print("New document inserted:")
+    #         print(document)

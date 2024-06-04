@@ -1,0 +1,20 @@
+python -m venv venv
+---------Xóa python -m venv venv-------------
+venv\Scripts\deactivate
+rmdir /s venv
+
+.\venv\Scripts\Activate
+uvicorn server:app --reload
+-------Muốn thoát -------------
+venv\Scripts\deactivate hoặc deactivate
+
+pip install fastapi[all]
+
+uvicorn myapp:my_app --reload
+
+toxic 
+severe_toxic
+obscene
+threat
+insult
+identity_hate

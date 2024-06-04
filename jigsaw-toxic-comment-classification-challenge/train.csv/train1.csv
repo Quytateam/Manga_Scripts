@@ -1,0 +1,51 @@
+id,comment_text,toxic,severe_toxic,obscene,threat,insult,identity_hate
+1,You're a worthless piece of garbage. I hope you rot in hell!,1,1,1,1,1,0
+2,"I can't stand your ugly face, you pathetic loser",1,0,1,0,1,0
+3,I'll find you and make sure you regret ever crossing me.,1,0,0,1,1,0
+4,"You're such a stupid idiot, go jump off a bridge.",1,0,1,1,1,0
+5,"I hate all [ethnic group] people, they're disgusting.",1,0,0,0,1,1
+6,"You're a worthless [racial slur], go back to where you came from!",1,0,1,0,1,1
+7,"I hope someone teaches you a lesson, you deserve it.",1,0,0,1,1,0
+8,"You're a waste of space, nobody likes you.",1,0,0,0,1,0
+9,I'll make sure you regret ever opening your mouth,1,0,0,1,1,0
+10,"You're such a disgusting pig, no wonder everyone hates you",1,0,1,0,1,0
+11,"You're a disgusting monster, I wish you were never born.",1,1,1,0,1,0
+12,"You're so dumb, it's like talking to a brick wall.",1,0,0,0,1,0
+13,"I'll kill you and your whole family, you worthless scum",1,1,1,1,1,1
+14,"You're a pathetic excuse for a human being, go crawl back into your hole",1,0,1,0,1,0
+15,"I hope someone beats you to a pulp, you deserve it.",1,1,0,1,1,0
+16,"You're nothing but a waste of oxygen, nobody wants you around.",1,0,0,0,1,0
+17,I'll make sure you suffer for every word you've said.,1,1,0,1,1,0
+18,"You're such a repulsive creature, go die in a ditch somewhere",1,1,1,0,1,0
+19,I'll hunt you down and make sure you regret ever crossing me.,1,1,0,1,1,0
+20,"You're lower than dirt, I wouldn't even spit on you",1,0,0,0,1,0
+21,"I hope you get hit by a bus, you're a waste of space",1,0,0,1,1,0
+22,"You're such a pathetic loser, nobody would even notice if you disappeared",1,0,0,0,1,0
+23,"I'll tear you apart piece by piece, you'll beg for mercy.",1,1,0,1,1,0
+24,"You're such a worthless piece of trash, nobody cares about you.",1,0,0,0,1,0
+25,I'll make sure you regret ever showing your face.,1,1,0,1,1,0
+26,"You're such a disgusting filth, I can't stand to be near you",1,0,1,0,1,0
+27,"I hope you suffer for every breath you take, you're a waste of oxygen",1,1,0,1,1,0
+28,"You're a vile creature, go back to where you belong.",1,0,1,0,1,0
+29,I'll crush you like the insignificant insect you are,1,1,0,1,1,0
+30,"You're such a worthless excuse for a human being, go rot in a gutter.",1,0,1,0,1,0
+31,"You're doing a great job, keep it up!",0,0,0,0,0,0
+32,"I appreciate your kindness, thank you!",0,0,0,0,0,0
+33,You always know how to make me smile,0,0,0,0,0,0
+34,You're such a positive influence on others,0,0,0,0,0,0
+35,Sending you lots of love and positivity!,0,0,0,0,0,0
+36,You're a ray of sunshine on a cloudy day,0,0,0,0,0,0
+37,"You have a heart of gold, never change!",0,0,0,0,0,0
+38,Thanks for being such a supportive friend.,0,0,0,0,0,0
+39,"You're so thoughtful, I'm grateful for you.",0,0,0,0,0,0
+40,You're amazing just the way you are.,0,0,0,0,0,0
+41,Your kindness makes the world a better place.,0,0,0,0,0,0
+42,"You're a fantastic listener, thank you for being there.",0,0,0,0,0,0
+43,I'm lucky to have you in my life.,0,0,0,0,0,0
+44,You bring so much joy wherever you go.,0,0,0,0,0,0
+45,"Your positivity is contagious, keep spreading it!",0,0,0,0,0,0
+46,"You're always there to lift others up, it's inspiring.",0,0,0,0,0,0
+47,Thank you for being such a wonderful person.,0,0,0,0,0,0
+48,You make even the simplest moments special.,0,0,0,0,0,0
+49,"You have a beautiful soul, don't ever change.",0,0,0,0,0,0
+50,"You're one of a kind, and I'm grateful to know you.",0,0,0,0,0,0
