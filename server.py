@@ -71,6 +71,7 @@ def connectDB():
 
 #     scheduler.start()
 
+load_model()
 connectDB()
 
 # **************************** 1 trong file khbt.txt ****************************
@@ -94,7 +95,11 @@ async def toxicity(toxic: Toxicity):
         language = detect(toxic.comment_content)
         comment = translate_to_english(toxic.comment_content, language)
         input_str = vectorizer(comment)
-        prediction = (ml_models(np.expand_dims(input_str,0))['output_0'].numpy()> 0.5).astype(int)
+
+        # prediction = (ml_models(np.expand_dims(input_str,0))['output_0'].numpy()> 0.5).astype(int)
+        input_tensor = np.expand_dims(input_str, 0).astype(np.float32)
+        prediction = (ml_models(input_tensor)['output_0'].numpy() > 0.5).astype(int)
+
         labels = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate','language']
         toxicity_predictions = {label: float(value) for label, value in zip(labels, prediction[0])}
         toxicity_predictions['language'] = language
