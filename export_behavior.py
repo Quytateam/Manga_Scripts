@@ -5,6 +5,7 @@ import os
 from pymongo import MongoClient
 from config.db import connect_to_mongodb
 import pandas as pd
+from bson.objectid import ObjectId
 
 db = connect_to_mongodb()
 
@@ -77,6 +78,31 @@ def export_data_to_dict(field_name):
     except Exception as e:
         print(f"Xuất dữ liệu thất bại: {e}")
         return pd.DataFrame(columns=['userId', 'mangaId', field_name, 'updatedAt'])
+
+
+def export_behavior_by_id(userId):
+    try:
+        user_id = ObjectId(userId)
+        user_data = db.behaviors.find_one({'userId': user_id})
+        if user_data and 'behaviorList' in user_data:
+            # Trích xuất danh sách hành vi
+            behavior_list = user_data['behaviorList']
+            
+            # Tạo mảng object chỉ chứa mangaId và rating dưới dạng tuple
+            manga_rating_list = []
+            for behavior in behavior_list:
+                mangaId = str(behavior['mangaId'])
+                rating = behavior.get('rating', None)
+                if rating is not None:
+                    manga_rating_list.append((mangaId, rating))
+                
+            return manga_rating_list
+        else:
+            return []
+
+    except Exception as e:
+        print(f"Xuất dữ liệu thất bại: {e}")
+        return []
 
 # CSV output file path
 # csv_file_path = os.path.join("Collaborative Filtering" ,f"{collection_name}.csv")

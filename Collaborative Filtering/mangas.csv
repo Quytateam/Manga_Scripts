@@ -1,2 +1,25 @@
-_id,name,author,genre
-664f7bbff7d334bb0ba94e00,Naruto,,action|adventure
+_id,name,author,genre,updatedAt
+664f7bbff7d334bb0ba94e00,Naruto,,action|adventure,2024-06-25 03:14:28.127000
+66648d1fe14004ab2684b308,ONE PIECE,Eiichiro Oda,action|adventure|comedy|drama|fantasy|shounen|supernatural,2024-06-24 18:00:00.439000
+66648eb0e14004ab2684b3c3,7 VIÊN NGỌC RỒNG,Akira Toriyama,action|adventure|shounen,2024-06-24 18:00:00.439000
+66648f04e14004ab2684b3e4,BLEACH,Thechosenone,action|adventure|fantasy|shounen,2024-06-24 18:00:00.439000
+66649528e14004ab2684b790,CHAINSAWMAN PHẦN 2,Fujimoto Tatsuki,action|comedy|psychological|shounen,2024-06-24 18:00:00.439000
+666495a0e14004ab2684b890,THỢ SĂN QUỶ,,action|shounen|supernatural,2024-06-24 18:00:00.439000
+66649682e14004ab2684b90c,SAKAMOTO DAYS,Suzuki Yuuto,action|comedy|shounen|slice-of-life|supernatural,2024-06-24 18:00:00.439000
+667098f93ceb1e17489672d0,THẦN CHẾT LÀM THÊM 300 YÊN MỘT GIỜ,,drama|manga|romance|school-life|supernatural|tragedy,2024-06-24 18:00:00.439000
+667868b8c070b2f1253fb148,HÔM NAY - TÔI HÓA KAIJU,,manga,2024-06-24 18:00:00.439000
+6678698fc070b2f1253fb1d2,THANH GƯƠM DIỆT QUỶ,,drama|fantasy|historical|manga|shounen,2024-06-24 18:00:00.439000
+66786bccc070b2f1253fb266,Sayonara Eri,Fujimoto Tatsuki,comedy|drama,2024-06-24 18:00:00.439000
+66786c78c070b2f1253fb2ad,Tokidoki,,comedy|one-shot|romance|school-life|slice-of-life|tragedy,2024-06-24 18:00:00.439000
+667873223f6da702146853d2,Gimmick,,comedy|drama,2024-06-24 18:00:00.439000
+667875ef07cebf7337495a38,Naruto Gaiden,Kishimoto Masashi,action|adventure|martial-arts|one-shot|romance|shounen|fantasy|drama,2024-06-24 18:00:00.439000
+6678783207cebf7337495d20,KEKKON YUBIWA MONOGATARI,,adventure|comedy|ecchi|harem|romance|seinen,2024-06-24 18:00:00.439000
+6678797c07cebf7337495ef1,ĐƯỢC CÁC ANH TRAI CHIỀU CHUỘNG TÔI TRỞ NÊN NGANG TÀNG,,chuyen-sinh|manhua|romance|truyen-mau,2024-06-24 18:00:00.439000
+66787a1407cebf7337495f25,Demon x Angel,,comedy|fantasy|romance,2024-06-24 18:00:00.439000
+66787ace07cebf7337495f6d,SỰ BIẾN MẤT CỦA NAGATO YUKI-CHAN,,comedy|romance|school-life|slice-of-life|supernatural,2024-06-24 18:00:00.439000
+66787e4607cebf7337495fe3,CHỈ CÓ TÔI KHÔNG BỊ ZOMBIE TẤN CÔNG,,action|adventure|drama|mature|psychological|seinen,2024-06-24 18:00:00.439000
+66787ec307cebf7337496017,NHỮNG KẺ BÊN TRONG GENOME,,adventure|manga|mystery|psychological|romance|shounen|supernatural,2024-06-24 18:00:00.439000
+66787fc607cebf7337496095,SAVAGE FANG OJOU-SAMA,Akaishi Kaoru - Kayahara,action|drama|fantasy|gender-bender|manga,2024-06-24 18:00:00.439000
+6678806007cebf73374960c3,JUJUTSU KAISEN - CHÚ THUẬT HỒI CHIẾN,Akutami Gege,action|fantasy|shounen|supernatural,2024-06-24 18:00:00.439000
+6678836f07cebf7337496332,IJIN TENSEI – GOKOKU WARFARE,,action|drama|manga|shounen,2024-06-24 18:00:00.439000
+667883f207cebf7337496366,DR.STONE - HỒI SINH THẾ GIỚI,,action|manga|shounen|supernatural,2024-06-24 18:00:00.439000

@@ -1,5 +1,5 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.params import Body
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -13,11 +13,12 @@ from keras.layers import TextVectorization
 from langdetect import detect
 from googletrans import Translator, LANGUAGES
 from config.db import connect_to_mongodb
-from Recommendation_Rating import setRatingList,getRecommend
+from Recommendation_Rating import setRatingList,getRecommend,getRecommentByGenre
 import random
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from export_manga import export_datas
+from typing import List
 
 app = FastAPI()
 
@@ -32,6 +33,9 @@ class Rating(BaseModel):
 class Recommendation(BaseModel):
     userId: str
 
+class Collection(BaseModel):
+    listId: List[str]
+
 
 # Khởi tạo các biến để lưu trữ vectorizer và ml_models
 vectorizer = None
@@ -42,7 +46,7 @@ collection = None
 def load_model():
     global vectorizer, ml_models
     # Load vectorizer
-    df = pd.read_csv('./jigsaw-toxic-comment-classification-challenge/train.csv/train2.csv')
+    df = pd.read_csv('./jigsaw-toxic-comment-classification-challenge/train.csv/train.csv')
     X = df['comment_text']
     MAX_FEATURES = 200000
     vectorizer = TextVectorization(max_tokens=MAX_FEATURES,
@@ -51,7 +55,7 @@ def load_model():
     vectorizer.adapt(X.values)
         
     # Load ML model
-    ml_models = keras.layers.TFSMLayer("./notebooks/toxicity", call_endpoint="serving_default")
+    ml_models = keras.layers.TFSMLayer("./notebooks/toxicity1", call_endpoint="serving_default")
         
     print("Vectorizer and ML model loaded successfully.")
 def connectDB():
@@ -96,12 +100,11 @@ async def toxicity(toxic: Toxicity):
         comment = translate_to_english(toxic.comment_content, language)
         input_str = vectorizer(comment)
 
-        # prediction = (ml_models(np.expand_dims(input_str,0))['output_0'].numpy()> 0.5).astype(int)
         input_tensor = np.expand_dims(input_str, 0).astype(np.float32)
         prediction = (ml_models(input_tensor)['output_0'].numpy() > 0.5).astype(int)
-
         labels = ['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate','language']
         toxicity_predictions = {label: float(value) for label, value in zip(labels, prediction[0])}
+        print(toxicity_predictions)
         toxicity_predictions['language'] = language
         levelWarning = {'level': None, 'content': None}
         if toxicity_predictions['severe_toxic'] == 1 or toxicity_predictions['threat'] == 1:
@@ -120,17 +123,34 @@ async def toxicity(toxic: Toxicity):
 @app.post("/rating")
 async def rating(rating: Rating):
     try:
-        setRatingList(rating)
+        mess = setRatingList(rating)
+        return JSONResponse(mess)
     except Exception as e:
         raise HTTPException(status_code=404, detail=str(e))
     
 @app.get("/recommend")
-async def rating(userId: str):
+async def recommend(userId: str):
     try:
         recommend = Recommendation(userId=userId)
         list = getRecommend(recommend)
         random.shuffle(list)
         return JSONResponse(list)
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    
+@app.get("/collection")
+async def collection_list(listId: List[str] = Query(...)):
+    try:
+        collection = Collection(listId=listId)
+        collectionList = collection.listId[0].split(',')
+        listRecommentByGenre = getRecommentByGenre(collectionList)
+        unique_ids_list = []
+        seen = set()
+        for id in listRecommentByGenre:
+            if id not in seen:
+                unique_ids_list.append(id)
+                seen.add(id)
+        return JSONResponse(unique_ids_list)
     except Exception as e:
         raise HTTPException(status_code=404, detail=str(e))
 

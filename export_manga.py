@@ -13,7 +13,7 @@ db = connect_to_mongodb()
 # CSV output file path
 csv_file_path = os.path.join("Collaborative Filtering" ,f"{collection_name}.csv")
 
-desired_fields = ["_id", "name", "author", "genre"]
+desired_fields = ["_id", "name", "author", "genre", "updatedAt"]
 
 def normalize_text(text):
     normalized_text = unicodedata.normalize('NFD', text.lower()).encode('ascii', 'ignore').decode('utf-8')
@@ -78,14 +78,10 @@ def export_mangas_to_dict():
             print("Không tìm thấy tài liệu nào trong collection.")
             return []
 
-        # Chuẩn bị dữ liệu để trả về
         result = []
         for doc in documents:
-            # Chuyển đổi giá trị của trường 'genre' thành chuỗi được định dạng mong muốn
             doc["_id"] = str(doc.get("_id"))
             doc["genre"] = format_genre(doc.get("genre", []))
-
-            # Tạo một dictionary chỉ chứa các trường mong muốn từ mỗi tài liệu
             filtered_doc = {field: doc.get(field, "") for field in desired_fields}
             result.append(filtered_doc)
         df = pd.DataFrame(result, columns=desired_fields)
